@@ -1,4 +1,4 @@
-#Cluster all LINE-derived RVT in pseudo-families based on their nucleotide sequence. Then build up a protein consensus sequences for each pseudofamily with more than 5 members.
+#Cluster all LINE-derived RVT in based on their nucleotide sequence. Then build up a protein consensus sequences for each cluster with more than 5 members.
 #These consensus will be used for phylogenetic inference
 
 cd ALL_LINES
@@ -30,7 +30,7 @@ for i in *.fasta; do
   cd ../
 done;
 
-#-----------------------Retrive RVT segment domain for each sequence, align it, trim them and finally build up a consensus--------------------#
+#-----------------------Retrive RVT segment domain for each sequence, align, trim them and finally build up a consensus--------------------#
 
 for i in $( ls | grep "_Min5_Clusters"); do 
   cd "$i"; 
