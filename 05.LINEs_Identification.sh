@@ -15,7 +15,7 @@ for i in $(ls | grep "_TransposableElements"); do
 
 #--------------------------------Extract LINEs that match the conditions (i.e. exhibit and RVT domain) ------------------------------#
  
- #RVT_Simplified_CDD.txt is a tab-delimited list of CDD entries related to RVT domains. We also remove 
+ #RVT_Simplified_CDD.txt is a tab-delimited list of CDD entries related to RVT domains.
  awk -F"\t" '{print$1}' /media/storage/jacopomartelossi/Evolution_Transposable.Elements/data/RVT_Simplified_CDD.txt | grep -Ff - "$varSpecie"_ORFSearch_ResolvedOverlap.rpsblast | cut -d" " -f1 > LINEs/"$varSpecie"_LINES.txt
 
 #-------------------------------Extract all  LINEs autonomous copies and confirm LINE RVT domain through hmmscan---------------------#
