@@ -9,7 +9,7 @@ for i in $(ls | grep "_TransposableElements"); do
  cat "$i"/MITEs/families_nr.fasta "$i"/RepeatModeler/*families.fa "$i"/Helitrons/*hel.fa > "$i"/Libraries/"$varSpecie"_AllLibraries.fa; 
 done;
 
-#-----------------------------Blastx against a clean set of proteins (i.e. no proteins related to TEs)----------------------#
+#-----------------------------Blastx against a clean set of proteins (i.e. without proteins related to TEs)----------------------#
 
 for i in $(ls | grep "_TransposableElements"); do 
 
@@ -45,7 +45,6 @@ for i in $(ls | grep "_TransposableElements"); do
  varSpecie=$( echo "$i" | cut -d"_" -f1); 
  cd "$i"/Libraries/; 
  cat Clean_Tandem/*NoTandem.fasta /media/storage/jacopomartelossi/dbs/Mollusca_RepBaseDfam_14-09-21.fasta > "$varSpecie"_plus_Mollusca.fasta; 
- #Remove redundancy with cd-hit
  cd-hit-est -T 0 -i *Mollusca.fasta -M 1000000 -o "$varSpecie"_plus_Mollusca_nr.fasta -c 0.8 -n 5 -aS 0.8 -g 1 -G 0
  cd ../../; 
 done;
