@@ -18,6 +18,7 @@ for i in *domtblout.BestHits; do
     #Create variable with name of the sequence
     varSeq=$(echo "$line" | awk '{print$4}'); 
     echo "$varSeq";
+    #Retrive each hitted sequence and add specie name and Superfamily classification to the header
     grep  -w -A1 "$varSeq" ../"$varSpecie"_ExtractedSequences_ORF.pep | sed 's/>.*/>'"$varSpecie"'_'"$varName"'/'  >> "$varSpecie"_DDE_D.pep  
   done< "$i"
   #Add a progressive number at the end of each header
