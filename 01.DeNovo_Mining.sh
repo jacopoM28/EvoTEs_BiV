@@ -27,7 +27,7 @@ BuildDatabase -name "$2" -engine ncbi "$varGenome"
 RepeatModeler -pa "$3" -engine ncbi -database "$2" -LTRStruct -debug 2>&1 | tee LTR_struct.log
 
 cd ..
-###################################MITEs Hunter###################################################
+###################################MITEs Tracker###################################################
 conda deactivate
 conda activate MITE_tracker
 
